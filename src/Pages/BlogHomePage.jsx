@@ -1,19 +1,27 @@
 import { Blogs } from "./Blogs/Blogs";
 import useFetch from "../Hooks/useFetch";
 import { environment } from "../environment";
+import { Link, useNavigate } from "react-router-dom";
 
 export const BlogHomePage = () => {
-    const { data: blogs, setData: setBlogs, isLoading, error } = useFetch(environment.blogs);
+    const { data: blogs, setData: setBlogs, isLoading, error } = useFetch(environment.api.blogs);
+
+    const navigate = useNavigate();
 
     const handleDelete = (id) => {
-        const newBlogs = blogs.filter(blog => blog.id !== id);
-        setBlogs(newBlogs);
+        fetch(environment.api.blogs + id, { method: 'DELETE' })
+            .then(() => setBlogs(blogs.filter(blog => blog.id !== id)))
+            .catch(error => console.log(error))
     }
+
+
 
     return (
         <div className="">
+            <Link to="/blogs/create">Create Blog +</Link>
+
             {isLoading && <p>Loading...</p>}
-            {error && <div>{error.message}</div>}
+            {error && <p>{error.message}</p>}
             {!blogs && <p>No blogs found</p>}
             {blogs &&
                 <>

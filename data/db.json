@@ -1,22 +1,10 @@
 {
-    "blogs": [
-        {
-            "title": "My new website",
-            "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur consectetur placerat felis, lobortis sagittis ligula porta sed. Phasellus a lacus luctus, efficitur turpis id, sollicitudin nunc. Maecenas ullamcorper faucibus arcu eget rhoncus. Sed vitae luctus massa, nec euismod nisi. Proin facilisis augue non nunc pretium euismod. Donec vehicula nibh ante, vel pulvinar nulla congue ac. Mauris molestie molestie condimentum.",
-            "author": "mario",
-            "id": 1
-        },
-        {
-            "title": "My website",
-            "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur consectetur placerat felis, lobortis sagittis ligula porta sed. Phasellus a lacus luctus, efficitur turpis id, sollicitudin nunc. Maecenas ullamcorper faucibus arcu eget rhoncus. Sed vitae luctus massa, nec euismod nisi. Proin facilisis augue non nunc pretium euismod. Donec vehicula nibh ante, vel pulvinar nulla congue ac. Mauris molestie molestie condimentum.",
-            "author": "yoshi",
-            "id": 2
-        },
-        {
-            "title": "My new website",
-            "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur consectetur placerat felis, lobortis sagittis ligula porta sed. Phasellus a lacus luctus, efficitur turpis id, sollicitudin nunc. Maecenas ullamcorper faucibus arcu eget rhoncus. Sed vitae luctus massa, nec euismod nisi. Proin facilisis augue non nunc pretium euismod. Donec vehicula nibh ante, vel pulvinar nulla congue ac. Mauris molestie molestie condimentum.",
-            "author": "mario",
-            "id": 3
-        }
-    ]
+  "blogs": [
+    {
+      "title": "sdf",
+      "body": "sdf",
+      "author": "mario",
+      "id": 34
+    }
+  ]
 }

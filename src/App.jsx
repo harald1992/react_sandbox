@@ -7,11 +7,13 @@ import Navbar from './Components/Navbar';
 import ParticleCanvas from './Components/ParticleCanvas/ParticleCanvas';
 import BlogDetails from './Pages/Blogs/BlogDetails';
 import Agenda from './Pages/Agenda/Agenda';
+import CreateBlog from './Pages/Blogs/CreateBlog';
+import { environment } from './environment';
 
 function App() {
   return (
     <div className="App">
-      <ParticleCanvas />
+      {/* <ParticleCanvas /> */}
 
       <Navbar></Navbar>
 
@@ -19,10 +21,13 @@ function App() {
         <Routes>
           <Route path="/react_sandbox" element={<BlogHomePage />}></Route>
           <Route path="/" element={<BlogHomePage />}></Route>
+          <Route path={environment.routes.blogs} element={<BlogHomePage />}></Route>
+
           <Route path="/blogs/:id" element={<BlogDetails />}></Route>
           <Route path="/checklist" element={<Agenda />}></Route>
+          <Route path="/blogs/create" element={<CreateBlog />}></Route>
 
-          <Route path="*" element={<p>/</p>}></Route>
+          <Route path="*" element={<h2>404: Not Found</h2>}></Route>
 
 
         </Routes>
