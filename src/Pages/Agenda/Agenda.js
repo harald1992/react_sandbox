@@ -10,7 +10,6 @@ export default function Agenda() {
 
     useEffect(() => {
         const storedTodos = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY));
-        console.log(storedTodos);
         if (storedTodos.length) {
             setTodos(storedTodos);
         }

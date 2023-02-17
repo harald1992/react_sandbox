@@ -8,12 +8,15 @@
 
 
 
+.headerfootermargin {
+  margin-top: 100px;
 
+  margin-bottom: 53px;
+}
 
-.app-footer,
-{
-position: fixed;
-width: 100%;
+.app-footer {
+  position: fixed;
+  width: 100%;
 }
 
 .app-footer {

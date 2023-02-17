@@ -1,0 +1,12 @@
+.blogpreview {
+    border: 1px solid black;
+    padding: 8px;
+}
+
+.blogcontainer {
+    display: grid;
+
+    grid-template-columns: repeat(5, 200px);
+    column-gap: 10px;
+    row-gap: 15px;
+}

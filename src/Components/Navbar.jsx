@@ -10,7 +10,6 @@ const Navbar = () => {
                 <img src={logo} className={styles.logo} alt="logo" />
 
                 <nav className={styles.nav}>
-                    <h1>the blog</h1>
                     <ul className={styles.links}>
                         <a href="/">Home</a>
                         <a href="/create">Create</a>

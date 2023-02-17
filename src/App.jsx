@@ -1,20 +1,27 @@
-import logo from './logo.svg';
 import './App.css';
 import { Link, Route, Routes } from "react-router-dom";
+
+
 import { HomePage } from './Pages/HomePage';
-import { TodoList } from './Pages/HomePage';
 import Navbar from './Components/Navbar';
+import ParticleCanvas from './Components/ParticleCanvas/ParticleCanvas';
 
 function App() {
   return (
     <div className="App">
+      <ParticleCanvas />
 
       <Navbar></Navbar>
 
-      <Routes>
-        <Route path="/react_sandbox" element={<HomePage />}></Route>
-      </Routes>
+      <div className="headerfootermargin">
+        <Routes>
+          <Route path="/react_sandbox" element={<HomePage />}></Route>
+          <Route path="/" element={<HomePage />}></Route>
+          <Route path="*" element={<p>/</p>}></Route>
 
+
+        </Routes>
+      </div>
 
       <footer className="app-footer">
         <ul className='footer-nav'>
