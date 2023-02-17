@@ -49,14 +49,18 @@ export default function Agenda() {
 
     return (
         <>
+            <h2>Agenda</h2>
+
             <TodoList todos={todos} toggleTodo={toggleTodo}></TodoList>
-            <br />
-            <br />
 
-            <input type="text" ref={todoNameRef} />
+            <div className="flex-row space-between gap-4">
+                <input type="text" ref={todoNameRef} />
 
-            <button onClick={handleAddTodo}>Add Todo</button>
-            <button onClick={handleClearTodo}>Clear Completed Todos</button>
+                <button className="btn" onClick={handleAddTodo}>Add Todo</button>
+                <button className="btn" onClick={handleClearTodo}>Clear Completed Todos</button>
+
+            </div>
+
             <p>{getTodoNumberLeft()} left to do</p>
         </>
     )

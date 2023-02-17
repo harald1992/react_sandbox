@@ -6,10 +6,11 @@ const useFetch = (url) => {
     const [error, setError] = useState(null);
 
 
-    useEffect(() => {       // runs anytime there is a re-render
-        fetch(url)
+    useEffect(() => {       // useEffect runs anytime there is a re-render
+        const abortController = new AbortController(); // use aortCont.signal ti stop the fetch signal, for example when going to a different page and the fetch is no longer needed.
+
+        fetch(url, { signal: abortController.signal })
             .then(res => {
-                console.log(res);
                 if (!res.ok) {
                     console.log('throwing error')
                     throw Error('Could not fetch data');
@@ -17,15 +18,22 @@ const useFetch = (url) => {
                 return res.json();
             })
             .then(data => {
-                console.log(data);
                 setData(data);
                 setIsLoading(false);
                 setError(null);
             })
             .catch(error => {
-                setError(error);
-                setIsLoading(false);
-            })
+                if (error.name === 'AbortError') {
+                    console.log('Fetch Aborted');
+                } else {
+                    setError(error);
+                    setIsLoading(false);
+                }
+
+            });
+
+        return () => abortController.abort(); // abort 
+
     },
         [] // only run useEffect when the params in this array are changed. if empty, will run once (aka ngOnInit)
     );

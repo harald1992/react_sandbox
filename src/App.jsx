@@ -2,9 +2,11 @@ import './App.css';
 import { Link, Route, Routes } from "react-router-dom";
 
 
-import { HomePage } from './Pages/HomePage';
+import { BlogHomePage } from './Pages/BlogHomePage';
 import Navbar from './Components/Navbar';
 import ParticleCanvas from './Components/ParticleCanvas/ParticleCanvas';
+import BlogDetails from './Pages/Blogs/BlogDetails';
+import Agenda from './Pages/Agenda/Agenda';
 
 function App() {
   return (
@@ -13,10 +15,13 @@ function App() {
 
       <Navbar></Navbar>
 
-      <div className="headerfootermargin">
+      <div className="content-container headerfootermargin">
         <Routes>
-          <Route path="/react_sandbox" element={<HomePage />}></Route>
-          <Route path="/" element={<HomePage />}></Route>
+          <Route path="/react_sandbox" element={<BlogHomePage />}></Route>
+          <Route path="/" element={<BlogHomePage />}></Route>
+          <Route path="/blogs/:id" element={<BlogDetails />}></Route>
+          <Route path="/checklist" element={<Agenda />}></Route>
+
           <Route path="*" element={<p>/</p>}></Route>
 
 
@@ -26,13 +31,10 @@ function App() {
       <footer className="app-footer">
         <ul className='footer-nav'>
           <li>
-            <Link to="/react_sandbox">Home</Link>
+            <Link to="/">Home</Link>
           </li>
           <li>
-            <Link to="/react_sandbox">Home</Link>
-          </li>
-          <li>
-            <Link to="/react_sandbox">Home</Link>
+            <Link to="/checklist">Checklist</Link>
           </li>
         </ul>
       </footer>

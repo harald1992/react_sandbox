@@ -14,18 +14,26 @@ export class Particle {
         this.height = 2;
 
         this.timer = 0;
+        this.interval = 10; // ms
         this.markedForDeletion = false;
 
     }
 
-    update() {
-        this.x += this.dx;
-        this.y += this.dy;
-        this.opacity -= 0.01;
-        if (this.opacity <= 0) {
-            this.opacity = 0;
-            this.markedForDeletion = true;
+    update(deltaTime) {
+        if (this.timer > this.interval) {
+            this.timer = 0;
+            this.x += this.dx;
+            this.y += this.dy;
+            this.opacity -= 0.03;
+            if (this.opacity <= 0) {
+                this.opacity = 0;
+                this.markedForDeletion = true;
+            }
+        } else {
+            this.timer += deltaTime;
         }
+
+
 
     }
 

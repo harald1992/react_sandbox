@@ -8,16 +8,7 @@ const Navbar = () => {
         <>
             <header className={styles.header}>
                 <img src={logo} className={styles.logo} alt="logo" />
-
-                <nav className={styles.nav}>
-                    <ul className={styles.links}>
-                        <a href="/">Home</a>
-                        <a href="/create">Create</a>
-                    </ul>
-                </nav>
             </header>
-
-
         </>
     )
 }

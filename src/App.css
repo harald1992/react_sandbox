@@ -8,11 +8,7 @@
 
 
 
-.headerfootermargin {
-  margin-top: 100px;
 
-  margin-bottom: 53px;
-}
 
 .app-footer {
   position: fixed;
@@ -60,4 +56,64 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.content-container {
+  max-width: 959px;
+  margin: 0 auto;
+}
+
+.headerfootermargin {
+  margin-top: 100px !important;
+  margin-bottom: 53px !important;
+}
+
+button.btn {
+  background: black;
+  color: white;
+  padding: 8px 16px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.flex-row {
+  display: flex;
+  flex-direction: row;
+}
+
+.space-between {
+  justify-content: space-between;
+}
+
+.gap-4 {
+  gap: 4px;
+}
+
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.card {
+  box-shadow: 3px 1px 3px black;
+  padding: 16px;
+}
+
+.margin-bottom-8 {
+  margin-bottom: 8px;
+}
+
+input {
+  padding: 8px;
+
+}
+
+a {
+  background-color: black;
+  color: white;
+  padding: 4px 8px;
+  text-decoration: none;
 }

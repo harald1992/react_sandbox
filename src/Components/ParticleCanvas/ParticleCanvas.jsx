@@ -58,11 +58,15 @@ const ParticleCanvas = () => {
     }, []);
 
 
+    let lastTime = 0;
 
-    const animate = () => {
+    const animate = (timeStamp) => {
+        const deltaTime = timeStamp - lastTime;
+        lastTime = timeStamp;
+
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         particles = particles.filter(p => !p.markedForDeletion)
-        particles.forEach(particle => particle.update());
+        particles.forEach(particle => particle.update(deltaTime));
         particles.forEach(particle => particle.draw(ctx));
 
         requestAnimationFrame(animate);
