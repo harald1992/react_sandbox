@@ -50,8 +50,12 @@ const ParticleCanvas = () => {
         })
 
         window.addEventListener("resize", e => {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
+            const app = document.querySelector('#root');
+            console.log(app.offsetWidth, app.offsetHeight);
+            canvas.width = app.offsetWidth;
+            canvas.height = app.offsetHeight;
+            // canvas.width = window.innerWidth;
+            // canvas.height = window.innerHeight;
         });
 
         animate();

@@ -1,6 +1,6 @@
-import { Blogs } from "./Blogs/Blogs";
-import useFetch from "../Hooks/useFetch";
-import { environment } from "../environment";
+import { Blogs } from "./Blogs";
+import useFetch from "../../Hooks/useFetch";
+import { environment } from "../../environment";
 import { Link, useNavigate } from "react-router-dom";
 
 export const BlogHomePage = () => {

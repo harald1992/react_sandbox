@@ -59,13 +59,12 @@
 }
 
 .content-container {
-  max-width: 959px;
+  max-width: 800px;
   margin: 0 auto;
 }
 
 .headerfootermargin {
-  margin-top: 100px !important;
-  margin-bottom: 53px !important;
+  padding: 100px 0 53px 0 !important
 }
 
 button.btn {
@@ -82,6 +81,7 @@ button.btn {
   display: flex;
   flex-direction: row;
 }
+
 
 .space-between {
   justify-content: space-between;

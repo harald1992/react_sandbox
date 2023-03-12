@@ -1,15 +1,16 @@
 import './App.css';
 import { Link, Route, Routes } from "react-router-dom";
 
-
-import { BlogHomePage } from './Pages/BlogHomePage';
 import Navbar from './Components/Navbar';
 import ParticleCanvas from './Components/ParticleCanvas/ParticleCanvas';
 import BlogDetails from './Pages/Blogs/BlogDetails';
 import Agenda from './Pages/Agenda/Agenda';
 import CreateBlog from './Pages/Blogs/CreateBlog';
 import { environment } from './environment';
-import WhyReact from './Components/WhyReact/WhyReact';
+import { BlogHomePage } from './Pages/Blogs/BlogHomePage';
+import WhyReact from './Pages/WhyReact/WhyReact';
+import DigitalBusinessCard from './Pages/DigitalBusinessCard/DigitalBusinessCard';
+import AirBnbExperiences from './Pages/AirBnbExperiences/AirBnbExperiences';
 
 function App() {
   return (
@@ -28,6 +29,9 @@ function App() {
           <Route path="/checklist" element={<Agenda />}></Route>
           <Route path="/blogs/create" element={<CreateBlog />}></Route>
           <Route path="/whyreact" element={<WhyReact />}></Route>
+          <Route path="/businesscard" element={<DigitalBusinessCard />}></Route>
+          <Route path="/airbnb" element={<AirBnbExperiences />}></Route>
+
 
           <Route path="*" element={<h2>404: Not Found</h2>}></Route>
 
@@ -46,6 +50,13 @@ function App() {
           <li>
             <Link to="/whyreact">Why excited React</Link>
           </li>
+          <li>
+            <Link to="/businesscard">Digital Business Card</Link>
+          </li>
+          <li>
+            <Link to="/airbnb">AirBnbExperiences</Link>
+          </li>
+
         </ul>
       </footer>
     </div>
