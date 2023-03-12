@@ -1,0 +1,23 @@
+.nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 0 16px;
+  border-bottom: 1px solid black;
+}
+
+.nav > img {
+  width: 80px;
+}
+
+.nav-items {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  list-style: none;
+}
+
+.nav-items > li {
+  padding: 8px;
+  /* border: 1px solid black; */
+}
