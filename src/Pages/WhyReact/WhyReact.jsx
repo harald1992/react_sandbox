@@ -5,7 +5,7 @@ import WhyReactHeader from './WhyReactHeader';
 function Footer() {
     return (
         <>
-            <p style={{ backgroundColor: 'white' }}>Copyright</p>
+            <p style={{ backgroundColor: 'grey' }}>Copyright</p>
         </>
     )
 }

@@ -5,7 +5,6 @@
     flex-direction: row;
     align-content: center;
     justify-content: space-between;
-    color: white;
     padding: 16px;
     font-size: 1.3rem;
 }
@@ -43,7 +42,6 @@
 
 .memeContainer {
     position: relative;
-    color: white;
     font-size: 2em;
     max-width: 500px;
     max-height: 500px;
@@ -66,6 +64,7 @@
     padding: 8px;
     text-align: center;
     left: 25%;
+    color: white;
 }
 
 .memeContainer>.topText {
