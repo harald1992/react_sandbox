@@ -1,23 +1,24 @@
 import { FaStar } from 'react-icons/fa';
 import styles from './AirBnbExperiencesCard.module.css';
 import profilePicture from '../../Assets/LinkedinProfilePicture.jpg';
+import { cardList } from './AirBnbDb.js';
 
 function AirBnbExperiencesCard(props) {
-    let card = props.card;
-    // imgSrc
-    // badge
-    // star
-    // price
-    // text
+    // let card = props.card;
+    const { img, badge, rating, reviewCount, country, price, text } = props;
+
+    const lala = [<h1 key={0}>lala1</h1>, <h1 key={1}>lalala2</h1>];
     return (
         <>
-            <div className={styles.card}>
-                <div className={styles.badge}>{card.badge}</div>
-                <img src={card.imgSrc} />
+            <div style={{ fontSize: '2px' }}>{lala}</div>
 
-                <p className={styles.starrow}><FaStar /> {card.star} (6) &#x2022; USA</p>
-                <p>{card.text}</p>
-                <p><b>From {card.price}</b> / person</p>
+            <div className={styles.card}>
+                {badge !== 'Available' && <div className={styles.badge}>{badge}</div>}
+                <img src={img} />
+
+                <p className={styles.starrow}><FaStar /> {rating} ({reviewCount}) &#x2022; {country}</p>
+                <p>{text}</p>
+                <p><b>From {price}</b> / person</p>
             </div>
         </>
     )
@@ -26,23 +27,22 @@ function AirBnbExperiencesCard(props) {
 export default function AirBnbExperiencesCards() {
     // imgSrc
     // badge
-    // star
+    // rating
     // price
     //text
-    const cardList = [
-        { imgSrc: profilePicture, badge: 'Sold Out', star: 5, price: 169, text: 'Life Lessons With Andy' },
-        { imgSrc: profilePicture, badge: 'Available', star: 4, price: 155, text: 'Swimming Course' }
-    ]
+
+    // let cardList = cardList;
+    const cardList2 = cardList.map((card, i) => <AirBnbExperiencesCard {...card} key={i} />);
 
     return (
         <>
-            <div className={styles.container}>
+            <div className={styles.container}>{cardList2}</div>
+
+            {/* <div className={styles.container}>
                 {cardList.map((card, i) => (
                     <AirBnbExperiencesCard card={card} key={i} />
-                ))
-                }
-
-            </div>
+                ))}
+            </div> */}
         </>
     )
 }

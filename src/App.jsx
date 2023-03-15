@@ -11,6 +11,8 @@ import { BlogHomePage } from './Pages/Blogs/BlogHomePage';
 import WhyReact from './Pages/WhyReact/WhyReact';
 import DigitalBusinessCard from './Pages/DigitalBusinessCard/DigitalBusinessCard';
 import AirBnbExperiences from './Pages/AirBnbExperiences/AirBnbExperiences';
+import MemeGenerator from './Pages/MemeGenerator/MemeGenerator';
+import FormExample from './Pages/FormExample/FormExample';
 
 function App() {
   return (
@@ -31,8 +33,8 @@ function App() {
           <Route path="/whyreact" element={<WhyReact />}></Route>
           <Route path="/businesscard" element={<DigitalBusinessCard />}></Route>
           <Route path="/airbnb" element={<AirBnbExperiences />}></Route>
-
-
+          <Route path="/memegenerator" element={<MemeGenerator />}></Route>
+          <Route path="/formexample" element={<FormExample />}> </Route>
           <Route path="*" element={<h2>404: Not Found</h2>}></Route>
 
 
@@ -56,10 +58,15 @@ function App() {
           <li>
             <Link to="/airbnb">AirBnbExperiences</Link>
           </li>
-
+          <li>
+            <Link to="/memegenerator">Meme Generator</Link>
+          </li>
+          <li>
+            <Link to="/formexample">Form Example</Link>
+          </li>
         </ul>
       </footer>
-    </div>
+    </div >
   );
 }
 

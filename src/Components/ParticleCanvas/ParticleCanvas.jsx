@@ -17,6 +17,7 @@ const ParticleCanvas = () => {
         canvas = document.getElementById(canvasId);
         canvas.style.position = 'absolute';
         canvas.style.pointerEvents = 'none';
+        canvas.style.maxWidth = '100%';
 
         ctx = canvas.getContext('2d');
         canvas.width = window.innerWidth;
@@ -51,7 +52,7 @@ const ParticleCanvas = () => {
 
         window.addEventListener("resize", e => {
             const app = document.querySelector('#root');
-            console.log(app.offsetWidth, app.offsetHeight);
+            // console.log(app.offsetWidth, app.offsetHeight);
             canvas.width = app.offsetWidth;
             canvas.height = app.offsetHeight;
             // canvas.width = window.innerWidth;
