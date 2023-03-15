@@ -13,6 +13,7 @@ import DigitalBusinessCard from './Pages/DigitalBusinessCard/DigitalBusinessCard
 import AirBnbExperiences from './Pages/AirBnbExperiences/AirBnbExperiences';
 import MemeGenerator from './Pages/MemeGenerator/MemeGenerator';
 import FormExample from './Pages/FormExample/FormExample';
+import Notes from './Pages/Notes/Notes';
 
 function App() {
   return (
@@ -35,6 +36,7 @@ function App() {
           <Route path="/airbnb" element={<AirBnbExperiences />}></Route>
           <Route path="/memegenerator" element={<MemeGenerator />}></Route>
           <Route path="/formexample" element={<FormExample />}> </Route>
+          <Route path="/notes" element={<Notes />}></Route>
           <Route path="*" element={<h2>404: Not Found</h2>}></Route>
 
 
@@ -63,6 +65,9 @@ function App() {
           </li>
           <li>
             <Link to="/formexample">Form Example</Link>
+          </li>
+          <li>
+            <Link to="/notes">Notes</Link>
           </li>
         </ul>
       </footer>

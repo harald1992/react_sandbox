@@ -21,15 +21,10 @@
 }
 
 .formContainer {
-    /* display: flex;
-    flex-direction: row;
-    justify-content: space-around; */
     display: grid;
     grid-template: 40px 40px / 1fr 1fr;
     gap: 16px;
 }
-
-.formContainer>input {}
 
 .formContainer>button {
     grid-column: 1 / -1;
@@ -80,7 +75,6 @@
         -2px 0 0 #000,
         2px 2px 5px #000;
 }
-
 
 .memeContainer>.bottomText {
     position: absolute;
