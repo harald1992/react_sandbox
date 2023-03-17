@@ -1,22 +1,30 @@
-import React from "react"
+import React, { useEffect } from "react"
 import Sidebar from "./Sidebar"
 import Editor from "./Editor"
 // import { data } from "./data"
 import Split from "react-split"
-import { nanoid } from "nanoid"
+// import { nanoid } from "nanoid"
 import notesStyling from './notesStyling.css';
 import 'react-mde/lib/styles/css/react-mde-all.css';
+import { v4 as uuidv4 } from 'uuid';
+import { deleteIndex } from "./NotesFunctions";
 
 export default function Notes() {
 
-    const [notes, setNotes] = React.useState([])
+    const [notes, setNotes] = React.useState(() => JSON.parse(localStorage.getItem('notes')) || [])
     const [currentNoteId, setCurrentNoteId] = React.useState(
         (notes[0] && notes[0].id) || ""
     )
 
+    useEffect(() => {
+        console.log('notes changed');
+
+        localStorage.setItem("notes", JSON.stringify(notes));
+    }, [notes])
+
     function createNewNote() {
         const newNote = {
-            id: nanoid(),
+            id: uuidv4(),
             body: "# Type your markdown note's title here"
         }
         setNotes(prevNotes => [newNote, ...prevNotes])
@@ -24,12 +32,34 @@ export default function Notes() {
     }
 
     function updateNote(text) {
-        setNotes(oldNotes => oldNotes.map(oldNote => {
-            return oldNote.id === currentNoteId
-                ? { ...oldNote, body: text }
-                : oldNote
-        }))
+        setNotes(oldNotes => {
+            let newNote = findCurrentNote();
+            newNote.body = text;
+            let filteredNotes = oldNotes.filter(note => note.id !== currentNoteId);
+            filteredNotes.unshift(newNote);
+            return filteredNotes;
+        })
+
+
+
+        // setNotes(oldNotes => oldNotes.map(oldNote => {
+
+        //     return oldNote.id === currentNoteId
+        //         ? { ...oldNote, body: text }
+        //         : oldNote
+        // }))
     }
+
+    function deleteNote(event, noteId) {
+        event.stopPropagation();
+        setNotes(oldNotes => oldNotes.filter(note => note.id !== noteId));
+    }
+
+    function deleteIndex(array, index) {
+        array.splice(index, 1);
+        return array;
+    }
+
 
     function findCurrentNote() {
         return notes.find(note => {
@@ -52,6 +82,7 @@ export default function Notes() {
                             currentNote={findCurrentNote()}
                             setCurrentNoteId={setCurrentNoteId}
                             newNote={createNewNote}
+                            deleteNote={deleteNote}
                         />
                         {
                             currentNoteId &&
