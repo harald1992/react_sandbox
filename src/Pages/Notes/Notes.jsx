@@ -17,8 +17,6 @@ export default function Notes() {
     )
 
     useEffect(() => {
-        console.log('notes changed');
-
         localStorage.setItem("notes", JSON.stringify(notes));
     }, [notes])
 

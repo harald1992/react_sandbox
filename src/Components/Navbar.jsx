@@ -1,10 +1,31 @@
 import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import logo from '../Assets/logo.svg';
 import styles from './Navbar.module.css';
-
+import { signIn, signOut } from '../Store/Actions/';
+import useLocalStorage from '../Hooks/useLocalStorage';
+import useUpdateLogger from '../Hooks/useUpdateLogger';
 
 const Navbar = () => {
+    const dispatch = useDispatch();
+
+    const isLoggedIn = useSelector(state => state.isLoggedIn);
+    useUpdateLogger(isLoggedIn);
+
+    const [name, setName] = useLocalStorage('name', '');
     const [isDarkMode, setIsDarkMode] = useState(true);
+
+    function changeName(e) {
+        setName(e.target.value);
+    }
+
+    function toggleLogin() {
+        if (isLoggedIn) {
+            dispatch(signOut());
+        } else {
+            dispatch(signIn());
+        }
+    }
 
     function switchDarkMode(e) {
         const checked = e.target.checked;
@@ -33,6 +54,18 @@ const Navbar = () => {
                     <span style={isDarkMode ? { opacity: '1.0' } : { opacity: '0.5' }}>Dark</span>
                 </label>
 
+                <div>
+                    {isLoggedIn ?
+                        <div className='flex-column'>
+                            Name:{name}
+                            <button onClick={toggleLogin}>Log Out</button>
+                        </div>
+                        :
+                        <div className='flex-column'>
+                            <input type="text" onChange={changeName} />
+                            <button onClick={toggleLogin}>Log In</button>
+                        </div>}
+                </div>
                 {/* <pre>{JSON.stringify(isDarkMode)}</pre> */}
 
             </header>

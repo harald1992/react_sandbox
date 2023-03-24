@@ -80,8 +80,6 @@ const ParticleCanvas = () => {
     return (
         <>
             <canvas className="canvas" id={canvasId}></canvas>
-
-
         </>
     )
 }

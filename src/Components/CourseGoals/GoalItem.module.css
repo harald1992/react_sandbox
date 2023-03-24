@@ -1,0 +1,8 @@
+.goal-item {
+    border: 1px solid black;
+    cursor: pointer;
+}
+
+.goal-item:hover {
+    background: grey;
+}

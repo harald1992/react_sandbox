@@ -14,6 +14,9 @@ import AirBnbExperiences from './Pages/AirBnbExperiences/AirBnbExperiences';
 import MemeGenerator from './Pages/MemeGenerator/MemeGenerator';
 import FormExample from './Pages/FormExample/FormExample';
 import Notes from './Pages/Notes/Notes';
+import { useSelector } from 'react-redux';
+import CourseInput from './Components/CourseGoals/CourseInput';
+import { CourseGoals } from './Components/CourseGoals/CourseGoals';
 
 function App() {
   return (
@@ -21,7 +24,6 @@ function App() {
       <ParticleCanvas />
 
       <Navbar></Navbar>
-
       <div className="content-container headerfootermargin">
         <Routes>
           <Route path="/react_sandbox" element={<BlogHomePage />}></Route>
@@ -37,6 +39,8 @@ function App() {
           <Route path="/memegenerator" element={<MemeGenerator />}></Route>
           <Route path="/formexample" element={<FormExample />}> </Route>
           <Route path="/notes" element={<Notes />}></Route>
+          <Route path="/coursegoals" element={<CourseGoals />}></Route>
+
           <Route path="*" element={<h2>404: Not Found</h2>}></Route>
 
 
@@ -68,6 +72,9 @@ function App() {
           </li>
           <li>
             <Link to="/notes">Notes</Link>
+          </li>
+          <li>
+            <Link to="/coursegoals">Course Goals</Link>
           </li>
         </ul>
       </footer>
