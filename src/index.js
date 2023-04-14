@@ -7,6 +7,7 @@ import { BrowserRouter } from 'react-router-dom';
 import { createStore } from 'redux';
 import allReducers from './Store/Reducers/';
 import { Provider } from 'react-redux';
+import { AuthContextProvider } from './context/auth-context';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
@@ -32,12 +33,17 @@ store.subscribe(() => {
 root.render(
   <React.StrictMode>
     <Provider store={store}>
+      {/* provider is redux */}
 
-      {/* <BrowserRouter basename='/react_sandbox'> */}
-      <BrowserRouter>
+      <AuthContextProvider>
+        {/* Authcontext is for useContext & createContext */}
 
-        <App />
-      </BrowserRouter>
+        {/* <BrowserRouter basename='/react_sandbox'> */}
+        <BrowserRouter>
+
+          <App />
+        </BrowserRouter>
+      </AuthContextProvider>
     </Provider>
   </React.StrictMode>
 );

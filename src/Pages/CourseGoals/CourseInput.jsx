@@ -1,30 +1,38 @@
-import { useState } from 'react';
-import Modal from '../Modal/Modal';
+import { useEffect } from 'react';
+import { useState, useRef } from 'react';
+import Modal from '../../Components/Modal/Modal';
 import styles from './CourseInput.module.css';
 
 
 
 
 const CourseInput = props => {
-    const [enteredValue, setEnteredValue] = useState('');
+    const goalInputRef = useRef();
+
     const [isValid, setIsValid] = useState(true);
     const [showModal, setShowModal] = useState(false);
 
-    const goalInputChangeHandler = event => {
-        if (event.target.value.trim().length > 0) {
-            setIsValid(true);
-        }
-        setEnteredValue(event.target.value);
-    };
+    useEffect(() => {
+        goalInputRef.current.focus();
+        goalInputRef.current.addEventListener('click', (e) => {
+            console.log('Clicked');
+        })
+    }, [])
+
+
+    function getGoal() {
+        return goalInputRef.current.value;
+    }
 
     const formSubmitHandler = event => {
         event.preventDefault();
-        if (enteredValue.trim().length === 0) {
+        if (getGoal().trim().length === 0) {
             setIsValid(false);
             toggleModal();
             return;
         }
-        props.onAddGoal(enteredValue);
+        props.onAddGoal(getGoal());
+        goalInputRef.current.value = '';
     };
 
     const toggleModal = () => {
@@ -38,7 +46,7 @@ const CourseInput = props => {
 
                 <div className={`${styles['form-control']} ${!isValid && styles.invalid}`}            >
                     <label>Course Goal</label>
-                    <input type="text" onChange={goalInputChangeHandler} />
+                    <input type="text" ref={goalInputRef} />
                 </div>
                 <button type="submit">Add Goal</button>
             </form >

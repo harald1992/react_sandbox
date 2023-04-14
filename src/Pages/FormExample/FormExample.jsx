@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { useState } from "react";
 
 export default function FormExample() {
@@ -9,6 +10,25 @@ export default function FormExample() {
         gender: 'female',
         isJoinNewsletter: true,
     });
+
+    const [formIsValid, setFormIsValid] = useState(true);
+
+    useEffect(() => {
+        // debounce the form validator for performance
+        const setFormTimer = setTimeout(() => {
+            let isValid = formData.name && formData.comment;
+            setFormIsValid(isValid);
+        }, 100)
+
+        return () => {
+            // cleanup function: will run before the next useEffect runs.
+            // Also runs  when component is destroyed/unmounted
+            clearTimeout(setFormTimer);
+        }
+
+    }, [formData.name, formData.comment])
+    // useEffect Hook: Always add everything you refer to inside useEffect as a useEffect Dependency
+
 
     function handleChange(e) {
         const { value, name, type, checked } = e.target;
@@ -63,7 +83,7 @@ export default function FormExample() {
                 <input type="checkbox" name="isJoinNewsletter" id="isJoinNewsletter" onChange={handleChange} checked={formData.isJoinNewsletter} />
                 <label htmlFor="isJoinNewsletter">Join the newsletter</label>
                 <hr />
-                <button type="submit">Submit</button>
+                <button type="submit" disabled={!formIsValid}>Submit</button>
             </form>
 
             <hr />

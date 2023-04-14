@@ -5,12 +5,15 @@ import styles from './Navbar.module.css';
 import { signIn, signOut } from '../Store/Actions/';
 import useLocalStorage from '../Hooks/useLocalStorage';
 import useUpdateLogger from '../Hooks/useUpdateLogger';
+import { useContext } from 'react';
+import { AuthContext } from '../context/auth-context';
 
 const Navbar = () => {
     const dispatch = useDispatch();
 
     const isLoggedIn = useSelector(state => state.isLoggedIn);
     useUpdateLogger(isLoggedIn);
+    const ctx = useContext(AuthContext);
 
     const [name, setName] = useLocalStorage('name', '');
     const [isDarkMode, setIsDarkMode] = useState(true);
@@ -67,7 +70,7 @@ const Navbar = () => {
                         </div>}
                 </div>
                 {/* <pre>{JSON.stringify(isDarkMode)}</pre> */}
-
+                <button onClick={ctx.changeContext}>Context Hook {ctx.myContextValue}</button>
             </header>
         </>
     )

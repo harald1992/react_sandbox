@@ -1,0 +1,12 @@
+.control {
+    display: flex;
+
+}
+
+.control input {
+    padding: 4px;
+}
+
+.control .invalid {
+    background-color: red;
+}
